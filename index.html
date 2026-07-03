@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>地震を見据えた体験型防災訓練 | 亀山ライオンズクラブ PR動画</title>
+
+<!-- OGP: LINEなどでリンクを共有した際のプレビュー用タグ -->
+<!-- ※公開URLが確定したら、この3つ(og:url / og:image / twitter:image)は絶対URLに書き換えてください -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="地震を見据えた体験型防災訓練 | 亀山ライオンズクラブ">
+<meta property="og:description" content="そのとき、子どもたちの命を守るために。2026年9月15日(仮) 神辺小学校にて開催予定の体験型防災訓練のご紹介です。">
+<meta property="og:image" content="https://eclectic-starlight-fda44a.netlify.app/assets/truck.jpeg">
+<meta property="og:url" content="https://eclectic-starlight-fda44a.netlify.app/">
+<meta property="og:site_name" content="4R1Z 亀山ライオンズクラブ">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="地震を見据えた体験型防災訓練 | 亀山ライオンズクラブ">
+<meta name="twitter:description" content="そのとき、子どもたちの命を守るために。2026年9月15日(仮) 神辺小学校にて開催予定の体験型防災訓練のご紹介です。">
+<meta name="twitter:image" content="https://eclectic-starlight-fda44a.netlify.app/assets/truck.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b2545;
+    --navy-deep:#071a33;
+    --gold:#f4b93e;
+    --gold-soft:#ffd97a;
+    --orange:#e8622c;
+    --orange-deep:#b8431a;
+    --ink:#1a2233;
+    --paper:#faf6ec;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0; padding:0; height:100%;
+    background:#12161f;
+    font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+    color:var(--white);
+    overflow:hidden;
+  }
+  body{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:100vh;
+    gap:14px;
+    padding:16px;
+  }
+  #stage-wrap{
+    width:100%;
+    max-width:960px;
+  }
+  #stage{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--navy-deep);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06);
+  }
+  .scene{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:6% 8%;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.02);
+    transition:opacity .7s ease, transform .9s ease;
+  }
+  .scene.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+    z-index:2;
+  }
+
+  /* ---------- generic text styles ---------- */
+  .eyebrow{
+    font-size:clamp(11px,1.6vw,15px);
+    letter-spacing:.18em;
+    font-weight:700;
+    color:var(--gold-soft);
+    margin-bottom:14px;
+    opacity:0;
+  }
+  .scene.active .eyebrow{ animation:fadeUp .6s ease forwards; animation-delay:.1s; }
+  .title-main{
+    font-size:clamp(24px,5vw,46px);
+    font-weight:900;
+    line-height:1.35;
+    margin:0 0 14px;
+    opacity:0;
+  }
+  .scene.active .title-main{ animation:fadeUp .7s ease forwards; animation-delay:.3s; }
+  .subtitle{
+    font-size:clamp(13px,2vw,19px);
+    font-weight:500;
+    color:rgba(255,255,255,.85);
+    margin:0 0 18px;
+    opacity:0;
+  }
+  .scene.active .subtitle{ animation:fadeUp .7s ease forwards; animation-delay:.55s; }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(244,185,62,.14);
+    border:1px solid var(--gold);
+    color:var(--gold-soft);
+    font-weight:700;
+    font-size:clamp(11px,1.8vw,15px);
+    padding:8px 18px;
+    border-radius:999px;
+    opacity:0;
+  }
+  .scene.active .badge{ animation:fadeUp .7s ease forwards; animation-delay:.8s; }
+
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @keyframes pulseRing{
+    0%{transform:scale(.6); opacity:.55;}
+    100%{transform:scale(2.6); opacity:0;}
+  }
+  @keyframes kenburns{
+    from{transform:scale(1) translate(0,0);}
+    to{transform:scale(1.15) translate(-2%,-2%);}
+  }
+  @keyframes shake{
+    0%,100%{transform:translate(0,0);}
+    10%{transform:translate(-1px,1px);}
+    20%{transform:translate(1px,-1px);}
+    30%{transform:translate(-1px,0);}
+    40%{transform:translate(1px,1px);}
+    50%{transform:translate(0,-1px);}
+    60%{transform:translate(-1px,1px);}
+    70%{transform:translate(1px,0);}
+    80%{transform:translate(-1px,-1px);}
+    90%{transform:translate(1px,1px);}
+  }
+
+  /* ---------- Scene 1: Title ---------- */
+  #scene-1{
+    background:radial-gradient(ellipse at 50% 30%, #16345f 0%, var(--navy) 45%, var(--navy-deep) 100%);
+  }
+  .rings{
+    position:absolute; left:50%; top:38%; width:6px; height:6px;
+    transform:translate(-50%,-50%);
+  }
+  .rings span{
+    position:absolute; inset:0;
+    border:2px solid var(--gold-soft);
+    border-radius:50%;
+    animation:pulseRing 3.2s ease-out infinite;
+  }
+  .rings span:nth-child(2){animation-delay:1s;}
+  .rings span:nth-child(3){animation-delay:2s;}
+  .club-tag{
+    font-size:clamp(11px,1.6vw,14px);
+    letter-spacing:.2em;
+    color:rgba(255,255,255,.65);
+    margin-bottom:8px;
+    opacity:0;
+  }
+  .scene.active .club-tag{ animation:fadeUp .6s ease forwards; }
+
+  /* ---------- Scene 2: Problem ---------- */
+  #scene-2{
+    background:linear-gradient(160deg, var(--orange-deep) 0%, #7a2410 100%);
+  }
+  .warn-icon{
+    width:clamp(46px,7vw,64px); height:clamp(46px,7vw,64px);
+    margin-bottom:16px;
+    opacity:0;
+  }
+  .scene.active .warn-icon{ animation:fadeUp .6s ease forwards, warnPulse 1.6s ease-in-out .8s infinite; }
+  @keyframes warnPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.12);}
+  }
+  .quote-line{
+    font-size:clamp(20px,4.4vw,38px);
+    font-weight:900;
+    line-height:1.5;
+    margin:0 0 12px;
+    opacity:0;
+  }
+  .scene.active .quote-line{ animation:fadeUp .7s ease forwards; animation-delay:.25s; }
+  .quote-line .hl{ color:var(--gold-soft); }
+
+  /* ---------- Scene 3: Mission ---------- */
+  #scene-3{
+    background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  }
+  .mission-body{
+    font-size:clamp(13px,2.1vw,19px);
+    line-height:2;
+    color:rgba(255,255,255,.88);
+    max-width:640px;
+    opacity:0;
+  }
+  .scene.active .mission-body{ animation:fadeUp .7s ease forwards; animation-delay:.5s; }
+
+  /* ---------- Image feature scenes ---------- */
+  .img-scene{ padding:0; justify-content:flex-end; }
+  .img-scene img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    animation:kenburns 6.5s ease-out forwards;
+  }
+  .bg-video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    border:0;
+    pointer-events:none;
+  }
+  .img-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(7,26,51,.94) 10%, rgba(7,26,51,.55) 45%, rgba(7,26,51,.05) 75%);
+  }
+  .video-credit{
+    position:absolute; right:10px; bottom:6px; z-index:2;
+    font-size:10px; color:rgba(255,255,255,.4);
+  }
+  .img-caption{
+    position:relative;
+    z-index:2;
+    padding:0 8% 8%;
+    width:100%;
+  }
+  .img-caption .eyebrow{ color:var(--gold-soft); }
+  .img-caption .title-main{ font-size:clamp(20px,4vw,34px); text-align:left; }
+  .img-caption .subtitle{ text-align:left; }
+
+  /* ---------- Overview grid scene ---------- */
+  #scene-7{ background:var(--paper); color:var(--ink); }
+  #scene-7 .title-main{ color:var(--navy); }
+  .info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 22px;
+    width:100%;
+    max-width:640px;
+    margin-top:6px;
+  }
+  .info-card{
+    background:var(--white);
+    border-left:4px solid var(--orange);
+    border-radius:6px;
+    padding:10px 14px;
+    text-align:left;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+    opacity:0;
+    transform:translateY(14px);
+  }
+  .scene.active .info-card{ animation:fadeUp .55s ease forwards; }
+  .scene.active .info-card:nth-child(1){animation-delay:.35s;}
+  .scene.active .info-card:nth-child(2){animation-delay:.5s;}
+  .scene.active .info-card:nth-child(3){animation-delay:.65s;}
+  .scene.active .info-card:nth-child(4){animation-delay:.8s;}
+  .info-card .label{
+    font-size:clamp(10px,1.4vw,12px);
+    font-weight:700;
+    color:var(--orange-deep);
+    letter-spacing:.08em;
+    margin-bottom:3px;
+  }
+  .info-card .val{
+    font-size:clamp(12px,1.8vw,15px);
+    font-weight:700;
+    color:var(--navy);
+    line-height:1.4;
+  }
+
+  /* ---------- Timeline scene ---------- */
+  #scene-8{ background:var(--paper); color:var(--ink); align-items:flex-start; }
+  #scene-8 .title-main{ color:var(--navy); align-self:center; width:100%;}
+  .timeline{
+    list-style:none; margin:6px 0 0; padding:0;
+    width:100%; max-width:560px;
+    align-self:center;
+  }
+  .timeline li{
+    display:flex; align-items:baseline; gap:14px;
+    padding:6px 0;
+    border-bottom:1px dashed rgba(11,37,69,.18);
+    opacity:0;
+    transform:translateX(-14px);
+    text-align:left;
+  }
+  .scene.active .timeline li{ animation:fadeUp .5s ease forwards; }
+  .scene.active .timeline li:nth-child(1){animation-delay:.3s;}
+  .scene.active .timeline li:nth-child(2){animation-delay:.55s;}
+  .scene.active .timeline li:nth-child(3){animation-delay:.8s;}
+  .scene.active .timeline li:nth-child(4){animation-delay:1.05s;}
+  .scene.active .timeline li:nth-child(5){animation-delay:1.3s;}
+  .timeline .t{
+    flex:0 0 auto;
+    font-weight:900; color:var(--orange-deep);
+    font-size:clamp(11px,1.8vw,14px);
+    min-width:118px;
+  }
+  .timeline .d{
+    font-weight:500; color:var(--navy);
+    font-size:clamp(11px,1.8vw,14px);
+  }
+
+  /* ---------- Ask scene ---------- */
+  #scene-9{ background:linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); }
+  .ask-body{
+    font-size:clamp(12px,2vw,17px);
+    line-height:1.95;
+    color:rgba(255,255,255,.88);
+    max-width:600px;
+    opacity:0;
+  }
+  .scene.active .ask-body{ animation:fadeUp .7s ease forwards; animation-delay:.45s; }
+  .sign{
+    margin-top:16px;
+    font-size:clamp(11px,1.7vw,14px);
+    color:var(--gold-soft);
+    font-weight:700;
+    line-height:1.8;
+    opacity:0;
+  }
+  .scene.active .sign{ animation:fadeUp .7s ease forwards; animation-delay:.9s; }
+
+  /* ---------- Closing scene ---------- */
+  #scene-10{
+    background:radial-gradient(ellipse at 50% 40%, #16345f 0%, var(--navy) 50%, var(--navy-deep) 100%);
+  }
+  .emblem{
+    width:clamp(64px,10vw,92px); height:clamp(64px,10vw,92px);
+    border-radius:50%;
+    border:3px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:clamp(22px,4vw,34px);
+    color:var(--gold-soft);
+    margin-bottom:16px;
+    opacity:0;
+  }
+  .scene.active .emblem{ animation:fadeUp .6s ease forwards, spinIn 1s ease-out forwards; }
+  @keyframes spinIn{
+    from{transform:rotate(-90deg) scale(.6);}
+    to{transform:rotate(0) scale(1);}
+  }
+  .closing-name{
+    font-size:clamp(15px,2.6vw,22px);
+    font-weight:900;
+    margin-bottom:8px;
+    opacity:0;
+  }
+  .scene.active .closing-name{ animation:fadeUp .6s ease forwards; animation-delay:.25s; }
+  .closing-tagline{
+    font-size:clamp(12px,2vw,16px);
+    color:var(--gold-soft);
+    font-weight:700;
+    margin-bottom:18px;
+    opacity:0;
+  }
+  .scene.active .closing-tagline{ animation:fadeUp .6s ease forwards; animation-delay:.45s; }
+  .closing-thanks{
+    font-size:clamp(13px,2.2vw,18px);
+    font-weight:700;
+    opacity:0;
+  }
+  .scene.active .closing-thanks{ animation:fadeUp .6s ease forwards; animation-delay:.7s; }
+
+  /* ---------- controls ---------- */
+  #controls{
+    width:100%; max-width:960px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  #progress-track{
+    width:100%; height:5px;
+    background:rgba(255,255,255,.15);
+    border-radius:3px;
+    overflow:hidden;
+    cursor:pointer;
+  }
+  #progress-bar{
+    height:100%; width:0%;
+    background:linear-gradient(90deg, var(--gold), var(--orange));
+  }
+  .ctrl-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px;
+  }
+  .ctrl-btns{ display:flex; align-items:center; gap:10px; }
+  .ctrl-btn{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    color:var(--white);
+    width:36px; height:36px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-size:14px;
+    transition:background .2s;
+  }
+  .ctrl-btn:hover{ background:rgba(255,255,255,.2); }
+  #scene-counter{
+    font-size:12px; color:rgba(255,255,255,.6); font-variant-numeric:tabular-nums;
+  }
+  .dots{ display:flex; gap:6px; }
+  .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:rgba(255,255,255,.25);
+    cursor:pointer;
+    transition:background .2s, transform .2s;
+  }
+  .dot.on{ background:var(--gold); transform:scale(1.3); }
+
+  #hint{
+    font-size:11px; color:rgba(255,255,255,.35); text-align:center; max-width:960px;
+  }
+
+  /* ---------- sound badge ---------- */
+  #sound-badge{
+    position:absolute; top:12px; right:12px; z-index:6;
+    background:rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+    font-size:clamp(11px,1.8vw,13px);
+    font-weight:700;
+    padding:7px 14px;
+    border-radius:999px;
+    display:flex; align-items:center; gap:6px;
+    cursor:pointer;
+    animation:badgePulse 1.8s ease-in-out infinite;
+    transition:opacity .5s ease, visibility .5s ease;
+  }
+  #sound-badge.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+  @keyframes badgePulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.06); }
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgm-audio" src="assets/happytime.mp3" loop autoplay muted preload="auto"></audio>
+
+<div id="stage-wrap">
+  <div id="stage">
+
+    <div id="sound-badge">🔊 クリックで音楽ON</div>
+
+    <!-- Scene 1: Title -->
+    <div class="scene active" id="scene-1">
+      <div class="rings"><span></span><span></span><span></span></div>
+      <div class="club-tag">4R1Z 亀山ライオンズクラブ PRESENTS</div>
+      <div class="title-main">地震を見据えた<br>体験型防災訓練</div>
+      <div class="subtitle">そのとき、子どもたちの命を守るために</div>
+      <div class="badge">2026年9月15日(候補) ／ 神辺小学校</div>
+    </div>
+
+    <!-- Scene 2: Problem -->
+    <div class="scene" id="scene-2">
+      <svg class="warn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L1 21H23L12 2Z" fill="#ffd97a"/>
+        <rect x="11" y="9" width="2" height="6" fill="#7a2410"/>
+        <rect x="11" y="16.5" width="2" height="2" fill="#7a2410"/>
+      </svg>
+      <div class="quote-line">南海トラフ地震は、<br><span class="hl">「いつ起きてもおかしくない」</span></div>
+      <div class="subtitle">地震発生の頻度は、いま増加傾向にあります。</div>
+    </div>
+
+    <!-- Scene 3: Mission -->
+    <div class="scene" id="scene-3">
+      <div class="eyebrow">看板アクティビティ</div>
+      <div class="title-main">だから、私たちは動きます。</div>
+      <div class="mission-body">
+        亀山ライオンズクラブは、青少年健全育成と地域福祉活動の一環として、<br>
+        本物の"体験"で命を守る力を育む防災訓練を企画しました。
+      </div>
+    </div>
+
+    <!-- Scene 4: 地震体験車 -->
+    <div class="scene img-scene" id="scene-4">
+      <img src="assets/truck.jpeg" alt="地震体験車" class="poster-fallback">
+      <iframe class="bg-video" id="truck-video"
+        data-src="https://www.youtube.com/embed/pUSSxc2_Ogo?autoplay=1&mute=1&loop=1&playlist=pUSSxc2_Ogo&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&start=30&end=140"
+        title="起震車による地震体験" frameborder="0"
+        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="img-overlay"></div>
+      <div class="img-caption">
+        <div class="eyebrow">体験プログラム 1</div>
+        <div class="title-main">地震体験車で、本物の揺れを体感</div>
+        <div class="subtitle">三重県・亀山市の協力のもと、子どもたちがリアルな揺れを経験します</div>
+      </div>
+      <div class="video-credit" id="truck-video-credit">映像提供：大阪市住吉区役所公式チャンネル「災害体験(地震編)」</div>
+    </div>
+
+    <!-- Scene 5: 煙体験ハウス -->
+    <div class="scene img-scene" id="scene-5">
+      <img src="assets/smoke.jpeg" alt="煙体験ハウス" class="poster-fallback">
+      <iframe class="bg-video" id="smoke-video"
+        data-src="https://www.youtube.com/embed/SCDCgeUE-N4?autoplay=1&mute=1&loop=1&playlist=SCDCgeUE-N4&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&start=40&end=135"
+        title="煙の中を体験" frameborder="0"
+        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="img-overlay"></div>
+      <div class="img-caption">
+        <div class="eyebrow">体験プログラム 2</div>
+        <div class="title-main">煙の中を、実際に歩いて逃げる</div>
+        <div class="subtitle">消防本部の協力で、視界を奪われる怖さと正しい避難行動を学びます</div>
+      </div>
+      <div class="video-credit" id="smoke-video-credit">映像提供：Sunrise TV「防災訓練 煙の中を体験」</div>
+    </div>
+
+    <!-- Scene 6: 簡易トイレ寄贈 -->
+    <div class="scene img-scene" id="scene-6">
+      <img src="assets/toilet.jpeg" alt="簡易トイレ寄贈">
+      <div class="img-overlay"></div>
+      <div class="img-caption">
+        <div class="eyebrow">防災支援</div>
+        <div class="title-main">亀山市へ、簡易トイレを寄贈</div>
+        <div class="subtitle">災害時に困る「トイレ問題」への備えも、あわせて支援します</div>
+      </div>
+    </div>
+
+    <!-- Scene 7: 開催概要 -->
+    <div class="scene" id="scene-7">
+      <div class="eyebrow" style="color:#b8431a;">EVENT OVERVIEW</div>
+      <div class="title-main">開催概要（案）</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="label">対象</div><div class="val">神辺小学校 1〜6年生（約100〜150名）</div></div>
+        <div class="info-card"><div class="label">日程</div><div class="val">9月15日(候補) ※予備日 14・16・17日</div></div>
+        <div class="info-card"><div class="label">時間帯</div><div class="val">午前中を予定</div></div>
+        <div class="info-card"><div class="label">協力</div><div class="val">教育委員会・防災課・消防本部・自治会 等</div></div>
+      </div>
+    </div>
+
+    <!-- Scene 8: タイムスケジュール -->
+    <div class="scene" id="scene-8">
+      <div class="title-main" style="margin-bottom:10px;">当日のタイムスケジュール（案）</div>
+      <ul class="timeline">
+        <li><span class="t">8:15 - 8:45</span><span class="d">体育館にて例会・訓練の段取りと準備</span></li>
+        <li><span class="t">8:45 - 9:00</span><span class="d">防災訓練 開会式</span></li>
+        <li><span class="t">9:00 - 9:30</span><span class="d">設営及び準備</span></li>
+        <li><span class="t">9:35 - 12:00</span><span class="d">防災訓練 本番（1〜6年生 全員参加）</span></li>
+        <li><span class="t">12:00 - 12:15</span><span class="d">防災訓練 終了式</span></li>
+      </ul>
+    </div>
+
+    <!-- Scene 9: 協力のお願い -->
+    <div class="scene" id="scene-9">
+      <div class="eyebrow">ご協力のお願い</div>
+      <div class="title-main" style="font-size:clamp(18px,3.6vw,30px);">関係者の皆さまへ</div>
+      <div class="ask-body">
+        教育委員会、防災課、消防本部、自治会など<br>
+        関係各所のご協力があってこそ実現できる取り組みです。<br>
+        お忙しい中恐縮ですが、実現に向けご支援いただけますと幸いです。
+      </div>
+      <div class="sign">亀山ライオンズクラブ　次期会長　蔵城　貴紀<br>次期アラート委員長　山本　優</div>
+    </div>
+
+    <!-- Scene 10: Closing -->
+    <div class="scene" id="scene-10">
+      <div class="emblem">L</div>
+      <div class="closing-name">4R1Z　亀山ライオンズクラブ</div>
+      <div class="closing-tagline">地域に寄り添い、責任を果たす。</div>
+      <div class="closing-thanks">ご協力のほど、よろしくお願いいたします</div>
+    </div>
+
+  </div>
+</div>
+
+<div id="controls">
+  <div id="progress-track"><div id="progress-bar"></div></div>
+  <div class="ctrl-row">
+    <div class="ctrl-btns">
+      <div class="ctrl-btn" id="btn-prev" title="前のシーン">◀</div>
+      <div class="ctrl-btn" id="btn-play" title="再生/一時停止">❚❚</div>
+      <div class="ctrl-btn" id="btn-next" title="次のシーン">▶</div>
+      <div class="ctrl-btn" id="btn-restart" title="最初から">↺</div>
+      <div class="ctrl-btn" id="btn-mute" title="音楽ON/OFF">🔇</div>
+    </div>
+    <div class="dots" id="dots"></div>
+    <div id="scene-counter">1 / 10</div>
+  </div>
+</div>
+<div id="hint">クリックで再生 / 一時停止・シーン送り・ドットで直接ジャンプできます。画面録画すればそのまま動画(mp4)として書き出せます。BGM(甘茶の音楽工房「ハッピータイム」)はブラウザの制限により最初は無音で始まりますが、画面のどこか(または右上の🔊バッジ)を1回クリックすると音が鳴り始めます(🔊ボタンでON/OFF切り替え)。<br>※地震体験車の実写映像は、同封の「動画を再生する(サーバー起動).bat」から開いた場合のみ再生されます（index.htmlを直接開いた場合は写真表示になります）。</div>
+
+<script>
+(function(){
+  // ---------- Background music: looping BGM track (assets/happytime.mp3) ----------
+  // Starts autoplaying muted immediately (browsers always allow muted autoplay).
+  // On the first user interaction of any kind, it unmutes and restarts from 0:00
+  // so the audience actually hears the track from its beginning.
+  const MusicEngine = (function(){
+    const bgmAudio = document.getElementById('bgm-audio');
+    bgmAudio.volume = 0.4;
+    let unlocked = false;
+
+    function ensurePlaying(){
+      bgmAudio.play().catch(()=>{ /* will retry on next interaction */ });
+    }
+    ensurePlaying();
+
+    function unlock(){
+      if (unlocked) return;
+      unlocked = true;
+      bgmAudio.muted = false;
+      bgmAudio.currentTime = 0;
+      ensurePlaying();
+    }
+
+    function toggleMute(){
+      if (!unlocked){ unlock(); return false; }
+      bgmAudio.muted = !bgmAudio.muted;
+      if (!bgmAudio.muted) ensurePlaying();
+      return bgmAudio.muted;
+    }
+
+    return { unlock, toggleMute };
+  })();
+
+  const sceneEls = Array.from(document.querySelectorAll('.scene'));
+  const durations = [4200, 4200, 4600, 110000, 95000, 6200, 5400, 6400, 6200, 5600]; // ms per scene
+  const total = durations.reduce((a,b)=>a+b,0);
+  const cumulative = [0];
+  durations.forEach((d,i)=> cumulative.push(cumulative[i]+d));
+
+  const progressBar = document.getElementById('progress-bar');
+  const progressTrack = document.getElementById('progress-track');
+  const btnPlay = document.getElementById('btn-play');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const btnRestart = document.getElementById('btn-restart');
+  const dotsWrap = document.getElementById('dots');
+  const counterEl = document.getElementById('scene-counter');
+
+  sceneEls.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===0 ? ' on' : '');
+    d.addEventListener('click', ()=> jumpTo(i));
+    dotsWrap.appendChild(d);
+  });
+  const dotEls = Array.from(dotsWrap.children);
+
+  let currentIndex = 0;
+  let remaining = durations[0];
+  let timerId = null;
+  let startTime = null;
+  let playing = true;
+
+  function activate(index){
+    sceneEls.forEach((el,i)=> el.classList.toggle('active', i===index));
+    dotEls.forEach((el,i)=> el.classList.toggle('on', i===index));
+    counterEl.textContent = (index+1) + ' / ' + sceneEls.length;
+
+    const img = sceneEls[index].querySelector('img.kenburns, img');
+    if(img){
+      img.style.animation = 'none';
+      void img.offsetWidth;
+      img.style.animation = '';
+      img.classList.add('kenburns');
+    }
+  }
+
+  function setProgressInstant(pct){
+    progressBar.style.transition = 'none';
+    progressBar.style.width = pct + '%';
+    void progressBar.offsetWidth;
+  }
+
+  function animateProgressTo(pct, ms){
+    progressBar.style.transition = 'width ' + ms + 'ms linear';
+    void progressBar.offsetWidth;
+    progressBar.style.width = pct + '%';
+  }
+
+  function startTimer(){
+    startTime = Date.now();
+    const targetPct = (cumulative[currentIndex] + durations[currentIndex]) / total * 100;
+    animateProgressTo(targetPct, remaining);
+    timerId = setTimeout(()=>{ advance(1); }, remaining);
+  }
+
+  function stopTimer(){
+    if(timerId){ clearTimeout(timerId); timerId = null; }
+  }
+
+  function playScene(index, resetRemaining){
+    currentIndex = (index + sceneEls.length) % sceneEls.length;
+    activate(currentIndex);
+    if(resetRemaining){
+      remaining = durations[currentIndex];
+      setProgressInstant(cumulative[currentIndex] / total * 100);
+    }
+    if(playing) startTimer();
+  }
+
+  function advance(step){
+    stopTimer();
+    playScene(currentIndex + step, true);
+  }
+
+  function jumpTo(index){
+    stopTimer();
+    playScene(index, true);
+  }
+
+  function togglePlay(){
+    if(playing){
+      playing = false;
+      stopTimer();
+      remaining -= (Date.now() - startTime);
+      if(remaining < 50) remaining = 50;
+      const computed = getComputedStyle(progressBar).width;
+      progressBar.style.transition = 'none';
+      progressBar.style.width = computed;
+      btnPlay.textContent = '▶';
+    } else {
+      playing = true;
+      btnPlay.textContent = '❚❚';
+      const wrapWidth = progressTrack.getBoundingClientRect().width;
+      const curPx = parseFloat(getComputedStyle(progressBar).width);
+      const curPct = (curPx / wrapWidth) * 100;
+      setProgressInstant(curPct);
+      startTimer();
+    }
+  }
+
+  const btnMute = document.getElementById('btn-mute');
+  const soundBadge = document.getElementById('sound-badge');
+
+  btnPlay.addEventListener('click', togglePlay);
+  btnPrev.addEventListener('click', ()=> advance(-1));
+  btnNext.addEventListener('click', ()=> advance(1));
+  btnRestart.addEventListener('click', ()=> jumpTo(0));
+  btnMute.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const isMuted = MusicEngine.toggleMute();
+    btnMute.textContent = isMuted ? '🔇' : '🔊';
+    soundBadge.classList.add('hidden');
+  });
+  soundBadge.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    MusicEngine.unlock();
+    btnMute.textContent = '🔊';
+    soundBadge.classList.add('hidden');
+  });
+
+  // Browsers block unmuted audio until the user interacts with the page.
+  // Music autoplays muted from load; any interaction anywhere unmutes it.
+  function unlockAudioOnce(){
+    MusicEngine.unlock();
+    btnMute.textContent = '🔊';
+    soundBadge.classList.add('hidden');
+    document.removeEventListener('pointerdown', unlockAudioOnce);
+    document.removeEventListener('keydown', unlockAudioOnce);
+  }
+  document.addEventListener('pointerdown', unlockAudioOnce);
+  document.addEventListener('keydown', unlockAudioOnce);
+  progressTrack.addEventListener('click', (e)=>{
+    const rect = progressTrack.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    const targetTime = ratio * total;
+    let idx = 0;
+    while(idx < cumulative.length-1 && cumulative[idx+1] <= targetTime) idx++;
+    jumpTo(idx);
+  });
+
+  // YouTube embeds are blocked by origin checks when opened as a local file://
+  // (Error 153). Only activate the real video when served over http/https;
+  // otherwise fall back to the static photo so no error is shown.
+  ['truck', 'smoke'].forEach(function(key){
+    const video = document.getElementById(key + '-video');
+    const credit = document.getElementById(key + '-video-credit');
+    if (!video) return;
+    if (location.protocol === 'file:') {
+      video.remove();
+      if (credit) credit.remove();
+    } else {
+      video.src = video.dataset.src;
+    }
+  });
+
+  // kick off
+  activate(0);
+  setProgressInstant(0);
+  startTimer();
+})();
+</script>
+
+</body>
+</html>
